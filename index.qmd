@@ -1,5 +1,5 @@
 ---
-title: "YOUR NAME" 
+title: "Andrew Cox" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
   image: img/profile.png
@@ -26,16 +26,15 @@ about:
 ---
 
 
-Finley Malloc majors in Data Analytics at SUNY Geneseo. When not working on data analytics, Finley enjoys spending time unicycling and playing with her pet iguana.
+Andrew Cox majors in Accounting at SUNY Geneseo. When not working on Accounting, Finley enjoys spending time running and spending time with friends and family
 
 ## Education
 
-State University of New York at Geneseo | Geneseo, NY <br>
-B.S. in Data Analytics | Aug 2022 - May 2026 <br>
-Minor in Business Administration 
+State University of New York at Geneseo | Geneseo, NY <br> | Aug 2022 - May 2026 <br>
+Major in Accounting 
 
 ## Experience
 
-Starbucks Analytics | Data Analyst Intern | May 2024 - Aug 2024
+SUNY Geneseo Student 
 
 
