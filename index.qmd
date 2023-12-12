@@ -15,7 +15,7 @@ about:
       href: https://instagram.com
     - icon: github
       text: GitHub
-      href: https://github.com
+      href: https://github.com/andrewcox11
     - icon: file-earmark-pdf
       text: Resumé
       href: https://andrewcox11.github.io/resume.pdf
