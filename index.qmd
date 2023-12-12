@@ -9,7 +9,7 @@ about:
   links:
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/andrew-cox-40548124a/ 
     - icon: instagram
       text: Instagram
       href: https://instagram.com
