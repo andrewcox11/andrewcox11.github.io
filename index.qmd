@@ -2,7 +2,7 @@
 title: "Andrew Cox" 
 about:
   template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: img/profile.png
+  image: img/profile picture.png
   image-width: 16em
   image-shape: round # rectangle  round  rounded
   
