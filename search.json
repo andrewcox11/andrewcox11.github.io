@@ -81,7 +81,7 @@
     "href": "index.html",
     "title": "Andrew Cox",
     "section": "",
-    "text": "Andrew Cox majors in Accounting at SUNY Geneseo. When not working on Accounting, Andrew enjoys spending time running and spending time with friends and family"
+    "text": "Question Answers\nQ2a= NFL2022_stuffs &lt;- NFL2022_stuffs[!is.na(NFL2022_stuffs$posteam), ]\nQ2b summary_df &lt;- NFL2022_stuffs %&gt;% filter(wp &gt; 0.2 & wp &lt; 0.75 & down &lt;= 2 & half_seconds_remaining &gt; 120) %&gt;% group_by(posteam) %&gt;% summarise(mean_pass = mean(pass, na.rm = TRUE))\nQ2c Ggplot(data=NFL2022_stuffs)+ Geom_point(mapping=aes(x=percentage of pass plays, y=Team with possession))\nQ2d NFL2022_epa &lt;- read_csv(‘https://bcdanl.github.io/data/NFL2022_epa.csv’)\nNFL2022_stuffs_EPA &lt;- NFL2022_stuffs %&gt;% left_join(NFL2022_epa[, c(“play_id”, “passer”, “receiver”, “epa”)], by = “play_id”) %&gt;% filter(!is.na(passer))\nQ2e\nggplot(NFL2022_stuffs_EPA, aes(x = week, y = epa, group = passer, color = passer)) + geom_line() + labs(title = “J.Allen v.s. P.Mahomes weekly epa”, x = “Week”, y = “Mean EPA”)\nQ2f:\nepa_diff &lt;- NFL2022_stuffs_EPA %&gt;% filter(passer %in% c(“J.Allen”, “P.Mahomes”)) %&gt;% group_by(week, passer) %&gt;% summarise(epa_diff = mean(epa)) %&gt;% spread(passer, epa_diff) %&gt;% mutate(diff = J.Allen - P.Mahomes)\nQ2g: passers_summary &lt;- NFL2022_stuffs_EPA %&gt;% group_by(posteam, passer) %&gt;% summarise(mean_epa = mean(epa), n_pass = n()) %&gt;% group_by(passer) %&gt;% filter(n_pass &gt;= quantile(n_pass, 0.75)) %&gt;% top_n(10, wt = mean_epa)"
   },
   {
     "objectID": "index.html#education",
@@ -102,7 +102,7 @@
     "href": "blog-listing.html",
     "title": "Intuitive Data Analytics",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\n\nNov 2, 2023\n\n\nByeong-Hak Choe\n\n\n9 min\n\n\n\n\n\n\n  \n\n\n\n\nStarwars\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYour Name\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nNFL\n\n\nData-Driven Mastery: Unlocking Business Potential\n\n\n\n\n\n\nAndrew Cox\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nBeer Markets\n\n\n\n\n\n\n\n\n\nNov 2, 2023\n\n\nByeong-Hak Choe\n\n\n9 min\n\n\n\n\n\n\n  \n\n\n\n\nStarwars\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYour Name\n\n\n3 min\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\n\n\nOct 30, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\n\n\nOct 27, 2023\n\n\nYOUR NAME\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "project.html",
@@ -124,5 +124,12 @@
     "title": "DANL Project",
     "section": "2.2 MPG and a Type of Cars",
     "text": "2.2 MPG and a Type of Cars\nThe following boxplot shows how the distribution of highway MPG (hwy) varies by a type of cars (class) 🚙 🚚 🚐.\n\nggplot(data = mpg) +\n  geom_boxplot(aes(x = class, y = hwy, fill = class),\n               show.legend = F) +\n  labs(x = \"Class\", y = \"Highway\\nMPG\")"
+  },
+  {
+    "objectID": "posts/nfl/danl200-hw5-cox-andrew.html",
+    "href": "posts/nfl/danl200-hw5-cox-andrew.html",
+    "title": "NFL",
+    "section": "",
+    "text": "1 NFL\nQuestion Answers\nQ2a= NFL2022_stuffs &lt;- NFL2022_stuffs[!is.na(NFL2022_stuffs$posteam), ]\nQ2b summary_df &lt;- NFL2022_stuffs %&gt;% filter(wp &gt; 0.2 & wp &lt; 0.75 & down &lt;= 2 & half_seconds_remaining &gt; 120) %&gt;% group_by(posteam) %&gt;% summarise(mean_pass = mean(pass, na.rm = TRUE))\nQ2c Ggplot(data=NFL2022_stuffs)+ Geom_point(mapping=aes(x=percentage of pass plays, y=Team with possession))\nQ2d NFL2022_epa &lt;- read_csv(‘https://bcdanl.github.io/data/NFL2022_epa.csv’)\nNFL2022_stuffs_EPA &lt;- NFL2022_stuffs %&gt;% left_join(NFL2022_epa[, c(“play_id”, “passer”, “receiver”, “epa”)], by = “play_id”) %&gt;% filter(!is.na(passer))\nQ2e\nggplot(NFL2022_stuffs_EPA, aes(x = week, y = epa, group = passer, color = passer)) + geom_line() + labs(title = “J.Allen v.s. P.Mahomes weekly epa”, x = “Week”, y = “Mean EPA”)\nQ2f:\nepa_diff &lt;- NFL2022_stuffs_EPA %&gt;% filter(passer %in% c(“J.Allen”, “P.Mahomes”)) %&gt;% group_by(week, passer) %&gt;% summarise(epa_diff = mean(epa)) %&gt;% spread(passer, epa_diff) %&gt;% mutate(diff = J.Allen - P.Mahomes)\nQ2g: passers_summary &lt;- NFL2022_stuffs_EPA %&gt;% group_by(posteam, passer) %&gt;% summarise(mean_epa = mean(epa), n_pass = n()) %&gt;% group_by(passer) %&gt;% filter(n_pass &gt;= quantile(n_pass, 0.75)) %&gt;% top_n(10, wt = mean_epa)"
   }
 ]

@@ -1,29 +1,50 @@
 ---
-title: "Andrew Cox" 
-about:
-  template: trestles  # jolla  trestles  solana  marquee  broadside
-  image: profile picture.png
-  image-width: 16em
-  image-shape: round # rectangle  round  rounded
-  
-  links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/andrew-cox-40548124a/ 
-    - icon: instagram
-      text: Instagram
-      href: https://instagram.com
-    - icon: github
-      text: GitHub
-      href: https://github.com/andrewcox11
-    - icon: file-earmark-pdf
-      text: Resumé
-      href: https://andrewcox11.github.io/resume.pdf
-    - icon: mailbox
-      text: Email
-      href: mailto:arc104@geneseo.edu
+title: NFL
+subtitle: "Data-Driven Mastery: Unlocking Business Potential"
+author: 
+  - Andrew Cox
 
+toc: true
+toc-title: "Table of Contents"
+toc-depth: 2
+number-sections: true
+
+fig-width: 9
+
+execute:
+  code-tools: true
+  message: false
+  warning: false
+
+from: markdown+emoji
 ---
+```{r setup}
+#| include: false
+library(tidyverse)
+library(skimr)
+library(ggthemes)
+library(hrbrthemes)
+
+theme_set(theme_ipsum()+
+          theme(strip.background =element_rect(fill="lightgray"),
+                axis.title.x = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(10,0,0,0)),
+                axis.title.y = 
+                  element_text(angle = 0,
+                               size = rel(1.33),
+                               margin = margin(0,10,0,0))
+                )
+          )
+```
+
+
+
+
+# NFL
+
+
 
 
 Question Answers
@@ -74,13 +95,26 @@ passers_summary <- NFL2022_stuffs_EPA %>%
   top_n(10, wt = mean_epa)
 
 
-## Education
+```{r}
 
-State University of New York at Geneseo | Geneseo, NY <br> | Aug 2022 - May 2026 <br>
-Major in Accounting 
+```
 
-## Experience
 
-SUNY Geneseo Student 
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+```{r}
+
+
+```
 
 
