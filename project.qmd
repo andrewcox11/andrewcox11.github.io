@@ -98,25 +98,6 @@ skim(climate_finance) %>%
 ```
 
 
-## Yearly trend of total funding contributions varies by Energy and Status 
-With these graphs we can see the amount of committed funding has been increasing at a significant rate while provided funding seems to stay constant. The gap we see in provided funding size between the energy and non energy sectors is likely due to these projects requiring a significant amount of funds upfront.
-
-
-```{r}
-positive_contributions <- climate_finance %>% 
-  filter(Status == "provided",                       
-         `Type of support` == "adaptation") %>%      
-  group_by(Party, Year) %>%                          
-  summarise(Contribution = sum(Contribution, na.rm = T)) %>%  
-  filter(Contribution > 0) %>%                       
-  group_by(Party) %>%                                
-  count() %>%                                        
-  filter(n == 2018 - 2011 + 1)  %>%                  
-  select(Party) %>% 
-  distinct()    
-```
-
-
 ```{r}
 skim(climate_finance) %>% 
   select(-n_missing)

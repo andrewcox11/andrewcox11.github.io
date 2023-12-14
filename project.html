@@ -398,30 +398,9 @@ lgl (1): Energy
 </table>
 </div>
 </div>
-</section>
-<section id="yearly-trend-of-total-funding-contributions-varies-by-energy-and-status" class="level2">
-<h2 class="anchored" data-anchor-id="yearly-trend-of-total-funding-contributions-varies-by-energy-and-status">Yearly trend of total funding contributions varies by Energy and Status</h2>
-<p>With these graphs we can see the amount of committed funding has been increasing at a significant rate while provided funding seems to stay constant. The gap we see in provided funding size between the energy and non energy sectors is likely due to these projects requiring a significant amount of funds upfront.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>positive_contributions <span class="ot">&lt;-</span> climate_finance <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Status <span class="sc">==</span> <span class="st">"provided"</span>,                       </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type of support</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"adaptation"</span>) <span class="sc">%&gt;%</span>      </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party, Year) <span class="sc">%&gt;%</span>                          </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Contribution =</span> <span class="fu">sum</span>(Contribution, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span>  </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Contribution <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span>                       </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party) <span class="sc">%&gt;%</span>                                </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span>                                        </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="dv">2018</span> <span class="sc">-</span> <span class="dv">2011</span> <span class="sc">+</span> <span class="dv">1</span>)  <span class="sc">%&gt;%</span>                  </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Party) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'Party'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(climate_finance) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(climate_finance) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n_missing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -615,24 +594,24 @@ lgl (1): Energy
 </div>
 </div>
 </section>
-<section id="yearly-trend-of-total-funding-contributions-varies-by-energy-and-status-1" class="level2">
-<h2 class="anchored" data-anchor-id="yearly-trend-of-total-funding-contributions-varies-by-energy-and-status-1">Yearly trend of total funding contributions varies by Energy and Status</h2>
+<section id="yearly-trend-of-total-funding-contributions-varies-by-energy-and-status" class="level2">
+<h2 class="anchored" data-anchor-id="yearly-trend-of-total-funding-contributions-varies-by-energy-and-status">Yearly trend of total funding contributions varies by Energy and Status</h2>
 <p>With these graphs we can see the amount of committed funding has been increasing at a significant rate while provided funding seems to stay constant. The gap we see in provided funding size between the energy and non energy sectors is likely due to these projects requiring a significant amount of funds upfront.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>climate_finance <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Energy, Status, Year) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">funding_tot =</span> <span class="fu">sum</span>(Contribution, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> funding_tot)) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Status)) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Energy <span class="sc">~</span>.) <span class="sc">+</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_comma</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>climate_finance <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Energy, Status, Year) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">funding_tot =</span> <span class="fu">sum</span>(Contribution, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Year, <span class="at">y =</span> funding_tot)) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color =</span> Status)) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(Energy <span class="sc">~</span>.) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_comma</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Energy', 'Status'. You can override using
 the `.groups` argument.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="project_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="project_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -643,24 +622,24 @@ the `.groups` argument.</code></pre>
 <h2 class="anchored" data-anchor-id="financial-contributions-to-other-countries">Financial Contributions to Other Countries</h2>
 <p>Various parties in the climate_finance data frame have made positive financial contributions to other countries for adaptation projects. Here, we will find the number of parties that made a positive contribution to another country for every year between 2011 and 2018.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>positive_contributions <span class="ot">&lt;-</span> climate_finance <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Status <span class="sc">==</span> <span class="st">"provided"</span>,                       </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type of support</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"adaptation"</span>) <span class="sc">%&gt;%</span>      </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party, Year) <span class="sc">%&gt;%</span>                          </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Contribution =</span> <span class="fu">sum</span>(Contribution, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span>  </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Contribution <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span>                       </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party) <span class="sc">%&gt;%</span>                                </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span>                                        </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="dv">2018</span> <span class="sc">-</span> <span class="dv">2011</span> <span class="sc">+</span> <span class="dv">1</span>)  <span class="sc">%&gt;%</span>                  </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Party) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>positive_contributions <span class="ot">&lt;-</span> climate_finance <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Status <span class="sc">==</span> <span class="st">"provided"</span>,                       </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Type of support</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"adaptation"</span>) <span class="sc">%&gt;%</span>      </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party, Year) <span class="sc">%&gt;%</span>                          </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Contribution =</span> <span class="fu">sum</span>(Contribution, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Contribution <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span>                       </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party) <span class="sc">%&gt;%</span>                                </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span>                                        </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="dv">2018</span> <span class="sc">-</span> <span class="dv">2011</span> <span class="sc">+</span> <span class="dv">1</span>)  <span class="sc">%&gt;%</span>                  </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Party) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Party'. You can override using the
 `.groups` argument.</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(positive_contributions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(positive_contributions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 8</code></pre>
 </div>
@@ -671,17 +650,17 @@ the `.groups` argument.</code></pre>
 <p>There are two different types of contributions that a party can make: adaptation and mitigation. The type of contribution is decided based on the type of project it supports. Adaptation contributions go to an adaptation climate change project. A mitigation contribution goes to a mitigation climate change project.</p>
 <p>First, we will calculate the ratio between adaptation contribution and mitigation contribution for each type of Status for each Party each year.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ratio <span class="ot">&lt;-</span> climate_finance <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party, Year, Status, <span class="st">`</span><span class="at">Type of support</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Contribution =</span> <span class="fu">sum</span>(Contribution, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Contribution <span class="sc">!=</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party, Year, Status) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lag_Contribution =</span> <span class="fu">lag</span>(Contribution), </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">am_ratio =</span> lag_Contribution <span class="sc">/</span> Contribution ) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(am_ratio)) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">mitigation =</span> Contribution, </span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">adaptation =</span> lag_Contribution) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Type of support</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ratio <span class="ot">&lt;-</span> climate_finance <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party, Year, Status, <span class="st">`</span><span class="at">Type of support</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Contribution =</span> <span class="fu">sum</span>(Contribution, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Contribution <span class="sc">!=</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Party, Year, Status) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lag_Contribution =</span> <span class="fu">lag</span>(Contribution), </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">am_ratio =</span> lag_Contribution <span class="sc">/</span> Contribution ) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(am_ratio)) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">mitigation =</span> Contribution, </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">adaptation =</span> lag_Contribution) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">Type of support</span><span class="st">`</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'Party', 'Year', 'Status'. You can override
 using the `.groups` argument.</code></pre>
@@ -689,11 +668,11 @@ using the `.groups` argument.</code></pre>
 </div>
 <p>Here, we will visualize the distribution of the ratio between adaption contribution and mitigation contribution based on our calculation.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ratio, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(am_ratio))) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">75</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"log(ratio)"</span>, <span class="at">y =</span> <span class="st">"count"</span>, <span class="at">title =</span> <span class="st">"Distribution of the Ratio of Contributions"</span>) <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">'red'</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ratio, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log</span>(am_ratio))) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">75</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"log(ratio)"</span>, <span class="at">y =</span> <span class="st">"count"</span>, <span class="at">title =</span> <span class="st">"Distribution of the Ratio of Contributions"</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">'red'</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="project_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="project_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>This histogram depicts a generally normal distribution of the ratio between adaptation contribution and mitigation contribution.</p>
@@ -702,16 +681,16 @@ using the `.groups` argument.</code></pre>
 <h2 class="anchored" data-anchor-id="yearly-contribution-varying-by-energy-and-status">Yearly Contribution varying by Energy and Status</h2>
 <p>For both sectors (energy and non-energy), the amount of the committed funding has been increasing yearly, while the amount of provided funding has stayed relatively constant. Energy related projects usually require a much greater upfront cost than non-energy related projects, hence why there is a gap for the provided amounts.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(climate_finance,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">`</span><span class="at">Type of support</span><span class="st">`</span>, <span class="at">x =</span> <span class="fu">log</span>(Contribution))) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>() <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(.<span class="sc">~</span> Status) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'top'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(climate_finance,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">color =</span> <span class="st">`</span><span class="at">Type of support</span><span class="st">`</span>, <span class="at">x =</span> <span class="fu">log</span>(Contribution))) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(.<span class="sc">~</span> Status) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'top'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="project_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="project_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
