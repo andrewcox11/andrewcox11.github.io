@@ -26,53 +26,6 @@ about:
 ---
 
 
-Question Answers
-
-Q2a= 
-NFL2022_stuffs <- NFL2022_stuffs[!is.na(NFL2022_stuffs$posteam), ]
-
-Q2b
-summary_df <- NFL2022_stuffs %>%
-  filter(wp > 0.2 & wp < 0.75 & down <= 2 & half_seconds_remaining > 120) %>%
-  group_by(posteam) %>%
-  summarise(mean_pass = mean(pass, na.rm = TRUE))
-
-Q2c
-Ggplot(data=NFL2022_stuffs)+
-  Geom_point(mapping=aes(x=percentage of pass plays, y=Team with possession))
-
-Q2d
-NFL2022_epa <- read_csv('https://bcdanl.github.io/data/NFL2022_epa.csv')
-
-NFL2022_stuffs_EPA <- NFL2022_stuffs %>%
-  left_join(NFL2022_epa[, c("play_id", "passer", "receiver", "epa")], by = "play_id") %>%
-  filter(!is.na(passer))
-
-Q2e
-
-ggplot(NFL2022_stuffs_EPA, aes(x = week, y = epa, group = passer, color = passer)) +
-  geom_line() +
-  labs(title = "J.Allen v.s. P.Mahomes weekly epa",
-       x = "Week",
-       y = "Mean EPA") 
-
-Q2f: 
-
-epa_diff <- NFL2022_stuffs_EPA %>%
-  filter(passer %in% c("J.Allen", "P.Mahomes")) %>%
-  group_by(week, passer) %>%
-  summarise(epa_diff = mean(epa)) %>%
-  spread(passer, epa_diff) %>%
-  mutate(diff = J.Allen - P.Mahomes)
-
-Q2g: 
-passers_summary <- NFL2022_stuffs_EPA %>%
-  group_by(posteam, passer) %>%
-  summarise(mean_epa = mean(epa), n_pass = n()) %>%
-  group_by(passer) %>%
-  filter(n_pass >= quantile(n_pass, 0.75)) %>%
-  top_n(10, wt = mean_epa)
-
 
 ## Education
 
