@@ -147,7 +147,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>We are using the climate_finance data.frame :clap:</p>
+<p>About this project :clap:</p>
+<p>This project will address the various financial actions taken by various parties to address climate change.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -155,9 +156,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="data" class="level1">
-<h1>Data</h1>
-<p>The data.frame <code>mpg</code> contains a subset of the fuel economy data that the EPA makes available on <a href="https://fueleconomy.gov/">https://fueleconomy.gov/</a>. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car. :oncoming_automobile:</p>
+<section id="variable-description" class="level1">
+<h1>Variable Description</h1>
+<p>Party: a party (country) that provides a funding contribution to recipient country/region for their cliamte change project.</p>
+<p>Recipient country/region: Recipient country or region</p>
+<p>Project/programme/activity: Details in the climate change project</p>
+<p>Type of support:adaptation if the climate change project is related to adaptation project. mitigation if the climate change project is related to mitigation project.</p>
+<p>Year: Year that funding contribution is committed or provided.</p>
+<p>Contribution: An amount of funding contribution for the climate change project (in USD).</p>
+<p>Status: committed if a party commits to providing the funding contribution for the climate change project, but the funding contribution is NOT actually provided. provided if the funding contribution was provided for the climate change project.</p>
+<p>Energy: TRUE if the project is energy-related; FALSE otherwise.</p>
 <section id="summary-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
 <div class="cell">
