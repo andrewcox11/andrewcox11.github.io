@@ -2,9 +2,9 @@
 title: DANL Project
 subtitle: "Data-Driven Mastery: Unlocking Business Potential"
 author: 
-  - Name 1
-  - Name 2
-  - Name 3
+  - Name Andrew Cox
+  - Name Ann Brennan 
+  - Name Alex Ventresca
   - Name 4
   - Name 5
 
@@ -47,7 +47,7 @@ theme_set(theme_ipsum()+
 
 # Introduction
 
-About this project :clap:
+We are using the climate_finance data.frame :clap:
 
 ```{r}
 1 + 1
@@ -62,31 +62,36 @@ The data.frame `mpg` contains a subset of the fuel economy data that the EPA mak
 ## Summary Statistics
 
 ```{r}
-mpg <- ggplot2::mpg
+path <- 'https://bcdanl.github.io/data/climate_finance_energy.csv'
+climate_finance <- read_csv(path)
 ```
 
 ```{r}
 #| results: asis
 #| echo: false
-rmarkdown::paged_table(mpg) 
+rmarkdown::paged_table(climate_finance) 
 ```
 
 
 ```{r}
-skim(mpg) %>% 
+skim(climate_finance) %>% 
   select(-n_missing)
 ```
 
 
-## MPG and a Type of Cars
-The following boxplot shows how the distribution of highway MPG (`hwy`) varies by a type of cars (`class`) :blue_car: :truck: :minibus:.
+## Yearly trend of total funding contributions varies by Energy and Status 
+With these graphs we can see the amount of committed funding has been increasing at a significant rate while provided funding seems to stay constant. The gap we see in provided funding size between the energy and non energy sectors is likely due to these projects requiring a significant amount of funds upfront.
 
 
 ```{r}
-ggplot(data = mpg) +
-  geom_boxplot(aes(x = class, y = hwy, fill = class),
-               show.legend = F) +
-  labs(x = "Class", y = "Highway\nMPG") 
+climate_finance %>% 
+  group_by(Energy, Status, Year) %>% 
+  summarise(funding_tot = sum(Contribution, na.rm = T)) %>% 
+  ggplot(aes(x = Year, y = funding_tot)) +
+  geom_line(aes(color = Status)) +
+  geom_point() +
+  facet_wrap(Energy ~.) +
+  scale_y_comma()
 ```
 
 
