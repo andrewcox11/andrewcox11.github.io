@@ -119,6 +119,28 @@ climate_finance %>%
   scale_y_comma()
 ```
 
+## Analysis
 
+## Financial Contributions to Other Countries
 
+Various parties in the climate_finance data frame have made positive financial contributions to other countries for adaptation projects. Here, we will find the number of parties that made a positive contribution to another country for every year between 2011 and 2018.
 
+```{r}
+positive_contributions <- climate_finance %>% 
+  filter(Status == "provided",                       
+         `Type of support` == "adaptation") %>%      
+  group_by(Party, Year) %>%                          
+  summarise(Contribution = sum(Contribution, na.rm = T)) %>%  
+  filter(Contribution > 0) %>%                       
+  group_by(Party) %>%                                
+  count() %>%                                        
+  filter(n == 2018 - 2011 + 1)  %>%                  
+  select(Party) %>% 
+  distinct()    
+```
+
+```{r}
+nrow(positive_contributions)
+```
+
+[1] 8
