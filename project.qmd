@@ -199,3 +199,4 @@ ggplot(climate_finance,
 ## Summary
 
 There is not one set path or action to take to solve the climate change crisis, as demonstrated by the various amounts and types of funding actions. Climate finance is a complicated subject, but to solve the problem, more action (such as actually providing funds instead of just committing to it) is needed by all parties.
+
