@@ -42,7 +42,14 @@ theme_set(theme_ipsum()+
                 )
           )
 ```
+## DANL Project
+# Climate Finance 
 
+Authors 
+
+Andrew Cox
+Ann Brennan
+Alex Ventresca
 
 
 # Introduction
