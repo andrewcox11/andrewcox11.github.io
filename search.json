@@ -109,7 +109,7 @@
     "href": "project.html",
     "title": "Introduction",
     "section": "",
-    "text": "About this project :clap:\nThis project will address the various financial actions taken by various parties to address climate change.\n\n1 + 1\n\n[1] 2"
+    "text": "About this project\nThis project will address the various financial actions taken by various parties to address climate change.\n\n\n\n path &lt;- 'https://bcdanl.github.io/data/climate_finance_energy.csv'\nclimate_finance &lt;- read_csv(path)\n\nRows: 16853 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): Party, Recipient country/region, Project/programme/activity, Type o...\ndbl (2): Year, Contribution\nlgl (1): Energy\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   },
   {
     "objectID": "project.html#summary-statistics",
@@ -173,5 +173,12 @@
     "title": "Introduction",
     "section": "Types of Contributions",
     "text": "Types of Contributions\nThere are two different types of contributions that a party can make: adaptation and mitigation. The type of contribution is decided based on the type of project it supports. Adaptation contributions go to an adaptation climate change project. A mitigation contribution goes to a mitigation climate change project.\nFirst, we will calculate the ratio between adaptation contribution and mitigation contribution for each type of Status for each Party each year.\n\nratio &lt;- climate_finance %&gt;% \n  group_by(Party, Year, Status, `Type of support`) %&gt;% \n  summarise(Contribution = sum(Contribution, na.rm = T)) %&gt;% \n  filter(Contribution != 0) %&gt;% \n  group_by(Party, Year, Status) %&gt;% \n  mutate(lag_Contribution = lag(Contribution), \n         am_ratio = lag_Contribution / Contribution ) %&gt;% \n  filter(!is.na(am_ratio)) %&gt;% \n  rename(mitigation = Contribution, \n         adaptation = lag_Contribution) %&gt;% \n  select(-`Type of support`) \n\n`summarise()` has grouped output by 'Party', 'Year', 'Status'. You can override\nusing the `.groups` argument.\n\n\nHere, we will visualize the distribution of the ratio between adaption contribution and mitigation contribution based on our calculation.\n\nggplot(ratio, aes(x = log(am_ratio))) +\n  geom_histogram(bins = 75) + labs(x = \"log(ratio)\", y = \"count\", title = \"Distribution of the Ratio of Contributions\") +\n  geom_vline(xintercept = 0, color = 'red', lty = 2)\n\n\n\n\nThis histogram depicts a generally normal distribution of the ratio between adaptation contribution and mitigation contribution."
+  },
+  {
+    "objectID": "project.html#data",
+    "href": "project.html#data",
+    "title": "Introduction",
+    "section": "",
+    "text": "path &lt;- 'https://bcdanl.github.io/data/climate_finance_energy.csv'\nclimate_finance &lt;- read_csv(path)\n\nRows: 16853 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): Party, Recipient country/region, Project/programme/activity, Type o...\ndbl (2): Year, Contribution\nlgl (1): Energy\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message."
   }
 ]

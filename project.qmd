@@ -47,14 +47,15 @@ theme_set(theme_ipsum()+
 
 # Introduction
 
-About this project :clap:
+About this project
 
 This project will address the various financial actions taken by various parties to address climate change.
 
-
+## Data
 
 ```{r}
-1 + 1
+ path <- 'https://bcdanl.github.io/data/climate_finance_energy.csv'
+climate_finance <- read_csv(path)
 ```
 
 
