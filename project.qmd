@@ -143,4 +143,4 @@ positive_contributions <- climate_finance %>%
 nrow(positive_contributions)
 ```
 
-[1] 8
+
