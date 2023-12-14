@@ -107,16 +107,16 @@
   {
     "objectID": "project.html",
     "href": "project.html",
-    "title": "DANL Project",
+    "title": "Introduction",
     "section": "",
-    "text": "We are using the climate_finance data.frame 👏\n\n1 + 1\n\n[1] 2"
+    "text": "We are using the climate_finance data.frame :clap:\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "project.html#summary-statistics",
     "href": "project.html#summary-statistics",
-    "title": "DANL Project",
-    "section": "2.1 Summary Statistics",
-    "text": "2.1 Summary Statistics\n\npath &lt;- 'https://bcdanl.github.io/data/climate_finance_energy.csv'\nclimate_finance &lt;- read_csv(path)\n\n\n\n\n  \n\n\n\nskim(climate_finance) %&gt;% \n  select(-n_missing)\n\n\nData summary\n\n\nName\nclimate_finance\n\n\nNumber of rows\n16853\n\n\nNumber of columns\n8\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n5\n\n\nlogical\n1\n\n\nnumeric\n2\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nParty\n1.00\n5\n24\n0\n34\n0\n\n\nRecipient country/region\n1.00\n3\n293\n0\n1310\n0\n\n\nProject/programme/activity\n0.68\n3\n1473\n0\n7908\n0\n\n\nType of support\n1.00\n10\n10\n0\n2\n0\n\n\nStatus\n1.00\n8\n9\n0\n2\n0\n\n\n\nVariable type: logical\n\n\n\nskim_variable\ncomplete_rate\nmean\ncount\n\n\n\n\nEnergy\n1\n0.19\nFAL: 13710, TRU: 3143\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nYear\n1\n2015.72\n1.82\n2011\n2015\n2016\n2017\n2018\n▁▂▆▅▇\n\n\nContribution\n1\n3311433.39\n9714907.28\n3000\n100000\n420000\n2200000\n100000000\n▇▁▁▁▁"
+    "title": "Introduction",
+    "section": "Summary Statistics",
+    "text": "Summary Statistics\n\npath &lt;- 'https://bcdanl.github.io/data/climate_finance_energy.csv'\nclimate_finance &lt;- read_csv(path)\n\nRows: 16853 Columns: 8\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (5): Party, Recipient country/region, Project/programme/activity, Type o...\ndbl (2): Year, Contribution\nlgl (1): Energy\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\n\n  \n\n\n\nskim(climate_finance) %&gt;% \n  select(-n_missing)\n\n\nData summary\n\n\nName\nclimate_finance\n\n\nNumber of rows\n16853\n\n\nNumber of columns\n8\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n5\n\n\nlogical\n1\n\n\nnumeric\n2\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nParty\n1.00\n5\n24\n0\n34\n0\n\n\nRecipient country/region\n1.00\n3\n293\n0\n1310\n0\n\n\nProject/programme/activity\n0.68\n3\n1473\n0\n7908\n0\n\n\nType of support\n1.00\n10\n10\n0\n2\n0\n\n\nStatus\n1.00\n8\n9\n0\n2\n0\n\n\n\nVariable type: logical\n\n\n\nskim_variable\ncomplete_rate\nmean\ncount\n\n\n\n\nEnergy\n1\n0.19\nFAL: 13710, TRU: 3143\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nYear\n1\n2015.72\n1.82\n2011\n2015\n2016\n2017\n2018\n▁▂▆▅▇\n\n\nContribution\n1\n3311433.39\n9714907.28\n3000\n100000\n420000\n2200000\n100000000\n▇▁▁▁▁"
   },
   {
     "objectID": "project.html#mpg-and-a-type-of-cars",
@@ -142,8 +142,29 @@
   {
     "objectID": "project.html#yearly-trend-of-total-funding-contributions-varies-by-energy-and-status",
     "href": "project.html#yearly-trend-of-total-funding-contributions-varies-by-energy-and-status",
-    "title": "DANL Project",
-    "section": "2.2 Yearly trend of total funding contributions varies by Energy and Status",
-    "text": "2.2 Yearly trend of total funding contributions varies by Energy and Status\nWith these graphs we can see the amount of committed funding has been increasing at a significant rate while provided funding seems to stay constant. The gap we see in provided funding size between the energy and non energy sectors is likely due to these projects requiring a significant amount of funds upfront.\n\nclimate_finance %&gt;% \n  group_by(Energy, Status, Year) %&gt;% \n  summarise(funding_tot = sum(Contribution, na.rm = T)) %&gt;% \n  ggplot(aes(x = Year, y = funding_tot)) +\n  geom_line(aes(color = Status)) +\n  geom_point() +\n  facet_wrap(Energy ~.) +\n  scale_y_comma()"
+    "title": "Introduction",
+    "section": "Yearly trend of total funding contributions varies by Energy and Status",
+    "text": "Yearly trend of total funding contributions varies by Energy and Status\nWith these graphs we can see the amount of committed funding has been increasing at a significant rate while provided funding seems to stay constant. The gap we see in provided funding size between the energy and non energy sectors is likely due to these projects requiring a significant amount of funds upfront.\n\npositive_contributions &lt;- climate_finance %&gt;% \n  filter(Status == \"provided\",                       \n         `Type of support` == \"adaptation\") %&gt;%      \n  group_by(Party, Year) %&gt;%                          \n  summarise(Contribution = sum(Contribution, na.rm = T)) %&gt;%  \n  filter(Contribution &gt; 0) %&gt;%                       \n  group_by(Party) %&gt;%                                \n  count() %&gt;%                                        \n  filter(n == 2018 - 2011 + 1)  %&gt;%                  \n  select(Party) %&gt;% \n  distinct()    \n\n`summarise()` has grouped output by 'Party'. You can override using the\n`.groups` argument.\n\n\n\nskim(climate_finance) %&gt;% \n  select(-n_missing)\n\n\nData summary\n\n\nName\nclimate_finance\n\n\nNumber of rows\n16853\n\n\nNumber of columns\n8\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n5\n\n\nlogical\n1\n\n\nnumeric\n2\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nParty\n1.00\n5\n24\n0\n34\n0\n\n\nRecipient country/region\n1.00\n3\n293\n0\n1310\n0\n\n\nProject/programme/activity\n0.68\n3\n1473\n0\n7908\n0\n\n\nType of support\n1.00\n10\n10\n0\n2\n0\n\n\nStatus\n1.00\n8\n9\n0\n2\n0\n\n\n\nVariable type: logical\n\n\n\nskim_variable\ncomplete_rate\nmean\ncount\n\n\n\n\nEnergy\n1\n0.19\nFAL: 13710, TRU: 3143\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nYear\n1\n2015.72\n1.82\n2011\n2015\n2016\n2017\n2018\n▁▂▆▅▇\n\n\nContribution\n1\n3311433.39\n9714907.28\n3000\n100000\n420000\n2200000\n100000000\n▇▁▁▁▁"
+  },
+  {
+    "objectID": "project.html#yearly-trend-of-total-funding-contributions-varies-by-energy-and-status-1",
+    "href": "project.html#yearly-trend-of-total-funding-contributions-varies-by-energy-and-status-1",
+    "title": "Introduction",
+    "section": "Yearly trend of total funding contributions varies by Energy and Status",
+    "text": "Yearly trend of total funding contributions varies by Energy and Status\nWith these graphs we can see the amount of committed funding has been increasing at a significant rate while provided funding seems to stay constant. The gap we see in provided funding size between the energy and non energy sectors is likely due to these projects requiring a significant amount of funds upfront.\n\nclimate_finance %&gt;% \n  group_by(Energy, Status, Year) %&gt;% \n  summarise(funding_tot = sum(Contribution, na.rm = T)) %&gt;% \n  ggplot(aes(x = Year, y = funding_tot)) +\n  geom_line(aes(color = Status)) +\n  geom_point() +\n  facet_wrap(Energy ~.) +\n  scale_y_comma()\n\n`summarise()` has grouped output by 'Energy', 'Status'. You can override using\nthe `.groups` argument."
+  },
+  {
+    "objectID": "project.html#analysis",
+    "href": "project.html#analysis",
+    "title": "Introduction",
+    "section": "Analysis",
+    "text": "Analysis"
+  },
+  {
+    "objectID": "project.html#financial-contributions-to-other-countries",
+    "href": "project.html#financial-contributions-to-other-countries",
+    "title": "Introduction",
+    "section": "Financial Contributions to Other Countries",
+    "text": "Financial Contributions to Other Countries\nVarious parties in the climate_finance data frame have made positive financial contributions to other countries for adaptation projects. Here, we will find the number of parties that made a positive contribution to another country for every year between 2011 and 2018.\n\npositive_contributions &lt;- climate_finance %&gt;% \n  filter(Status == \"provided\",                       \n         `Type of support` == \"adaptation\") %&gt;%      \n  group_by(Party, Year) %&gt;%                          \n  summarise(Contribution = sum(Contribution, na.rm = T)) %&gt;%  \n  filter(Contribution &gt; 0) %&gt;%                       \n  group_by(Party) %&gt;%                                \n  count() %&gt;%                                        \n  filter(n == 2018 - 2011 + 1)  %&gt;%                  \n  select(Party) %&gt;% \n  distinct()    \n\n`summarise()` has grouped output by 'Party'. You can override using the\n`.groups` argument.\n\n\n\nnrow(positive_contributions)\n\n[1] 8\n\n\n[1] 8"
   }
 ]

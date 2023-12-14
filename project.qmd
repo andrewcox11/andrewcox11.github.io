@@ -1,10 +1,10 @@
 ---
 title: DANL Project
 subtitle: "Data-Driven Mastery: Unlocking Business Potential"
-author: 
-Andrew Cox
-Ann Brennan 
-Alex Ventresca
+author : 
+ - Andrew Cox
+ - Ann Brennan 
+ - Alex Ventresca
 
 
 
